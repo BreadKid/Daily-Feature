@@ -18,3 +18,7 @@
 * [ ] JWT生成及解析
 * [ ] SpringBoot单机限流
   - RateLimiter
+* [ ] Stream集合操作优雅实现
+  - 交集
+  - 并集
+  - 差集
