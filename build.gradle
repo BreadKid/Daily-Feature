@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     implementation group:'org.springframework.boot', name:'spring-boot-starter-web',version:'2.6.3'
+    implementation group:'org.springframework.boot', name:'spring-boot-starter-aop',version:'2.6.3'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.6.3'
 
     developmentOnly group:'org.springframework.boot', name:'spring-boot-devtools',version:'2.6.3'
