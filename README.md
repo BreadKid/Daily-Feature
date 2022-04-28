@@ -8,8 +8,8 @@
 
 ### Feature List:
 * [x] [带缓存图验API](src/main/java/com/breadykid/dailyfeature/verifyCode/CaptchaController.java)：
-  - 返回Base64字符串
-  - 写入HttpServletResponse，直接返回图片
+  - [x] 返回Base64字符串
+  - [x] 写入HttpServletResponse，直接返回图片
 * [ ] Excel导入导出
   - POI
   - EasyExcel
@@ -17,4 +17,4 @@
 * [x] [脱敏处理](src/test/java/com/breadykid/dailyfeature/DataMaskUtilTest.java)
 * [ ] JWT生成及解析
 * [ ] 限流算法
-  - [x] [基于Guava的实现](src/main/java/com/breadykid/dailyfeature/limitReq/RateLimiterAspect.java)
+  - [ ] [基于Guava的实现](src/main/java/com/breadykid/dailyfeature/limitReq/RateLimiterAspect.java)
