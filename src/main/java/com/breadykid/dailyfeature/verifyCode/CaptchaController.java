@@ -1,6 +1,7 @@
 package com.breadykid.dailyfeature.verifyCode;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +18,8 @@ public class CaptchaController {
     private CaptchaService service;
 
     @GetMapping("base64")
-    public String getBase64Str(@RequestParam String randomId) {
-        return service.imageToBase64(randomId);
+    public ResponseEntity<String> getBase64Str(@RequestParam String randomId) {
+        return ResponseEntity.ok(service.imageToBase64(randomId));
     }
 
     @GetMapping("image")
@@ -28,7 +29,7 @@ public class CaptchaController {
     }
 
     @GetMapping("verify")
-    public boolean verify(@RequestParam String value,@RequestParam String randomId) {
-        return service.existVerifyMapping(value, randomId);
+    public ResponseEntity<Boolean> verify(@RequestParam String value,@RequestParam String randomId) {
+        return ResponseEntity.ok(service.existVerifyMapping(value, randomId));
     }
 }
