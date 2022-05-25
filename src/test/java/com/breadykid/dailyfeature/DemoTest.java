@@ -12,10 +12,10 @@ public class DemoTest {
     public void stringFormatCase () {
         String str = "a";
         //原值
-        String lowerCase = String.format("%s",str);
+        String originalCase = String.format("%s",str);
         //转大写
         String upperCase = String.format("%S",str);
-        assert !lowerCase.equals(upperCase);
-        assert lowerCase.equalsIgnoreCase(upperCase);
+        assert !originalCase.equals(upperCase);
+        assert originalCase.equalsIgnoreCase(upperCase);
     }
 }
