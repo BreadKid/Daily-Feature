@@ -31,6 +31,10 @@ dependencies {
 //    redis template
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.7.1'
 
+
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    implementation group: 'redis.clients', name: 'jedis', version: '4.2.3'
+
 }
 
 tasks.named('test') {
