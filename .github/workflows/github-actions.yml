@@ -2,8 +2,6 @@ name: someone fork repo ci
 on: [fork]
 jobs:
   pushdeer:
-    runs-on: demo
+    runs-on: ubuntu-latest
     steps:
-      - name: clip notification
-        run: curl "https://api2.pushdeer.com/message/push?pushkey=PDU12980TRBFWQ4ieHk97sbf4EDrgFsUpxhUypyWd&text=${{ github.repository }}有煞笔Fork啦！"
-        shell: bash
+      - run: curl "https://api2.pushdeer.com/message/push?pushkey=PDU12980TRBFWQ4ieHk97sbf4EDrgFsUpxhUypyWd&text=${{ github.repository }}有煞笔Fork啦！"
