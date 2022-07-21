@@ -1,7 +1,8 @@
-name: someone follow me ci
+name: someone fork repo ci
 on: [fork]
 jobs:
   pushdeer:
+    runs-on: demo
     steps:
       - name: clip notification
         run: curl "https://api2.pushdeer.com/message/push?pushkey=PDU12980TRBFWQ4ieHk97sbf4EDrgFsUpxhUypyWd&text=${{ github.repository }}有煞笔Fork啦！"
