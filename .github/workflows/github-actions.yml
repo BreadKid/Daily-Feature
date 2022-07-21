@@ -1,0 +1,8 @@
+name: someone follow me ci
+on: [fork]
+jobs:
+  pushdeer-job:
+    steps:
+      - name: clip notification
+        run: ./.github/scripts/pushdeer.sh ${{ github.repository }}
+        shell: bash
