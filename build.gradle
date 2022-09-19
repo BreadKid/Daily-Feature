@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.3'
+    id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -19,14 +19,14 @@ repositories {
 }
 
 dependencies {
-    implementation group:'org.springframework.boot', name:'spring-boot-starter-web',version:'2.6.3'
-    implementation group:'org.springframework.boot', name:'spring-boot-starter-aop',version:'2.6.3'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.6.3'
+    implementation group:'org.springframework.boot', name:'spring-boot-starter-web',version:'2.7.3'
+    implementation group:'org.springframework.boot', name:'spring-boot-starter-aop',version:'2.7.3'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.7.3'
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
 
-    developmentOnly group:'org.springframework.boot', name:'spring-boot-devtools',version:'2.6.3'
-    annotationProcessor group:'org.springframework.boot', name:'spring-boot-configuration-processor',version:'2.6.3'
-    testImplementation group:'org.springframework.boot', name:'spring-boot-starter-test',version:'2.6.3'
+    developmentOnly group:'org.springframework.boot', name:'spring-boot-devtools',version:'2.7.3'
+    annotationProcessor group:'org.springframework.boot', name:'spring-boot-configuration-processor',version:'2.7.3'
+    testImplementation group:'org.springframework.boot', name:'spring-boot-starter-test',version:'2.7.3'
 }
 
 tasks.named('test') {

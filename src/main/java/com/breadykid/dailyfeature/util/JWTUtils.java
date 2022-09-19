@@ -1,9 +1,9 @@
-package com.baozun.bs.moncler.common.utils;
+package com.breadykid.dailyfeature.util;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-
+import java.io.IOException;
 import java.util.Base64;
 
 public class JWTUtils {
@@ -17,11 +17,17 @@ public class JWTUtils {
      * @param idx
      * @return
      */
-    private static JsonObject getSpecPart(String jwt,int idx) {
+    private static JsonNode getSpecPart(String jwt, int idx) {
         String[] parts = jwt.split("\\.");
         String partStr = parts[idx];
         byte[] partByte = Base64.getDecoder().decode(partStr);
-        return new GsonBuilder().disableHtmlEscaping().create().fromJson(new String(partByte),JsonObject.class);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            JsonNode actualObj = mapper.readTree(partByte);
+            return actualObj;
+        } catch (IOException e) {
+            return null;
+        }
     }
 
     /**
@@ -29,7 +35,7 @@ public class JWTUtils {
      * @param jwt
      * @return
      */
-    private static JsonObject getHeader(String jwt) {
+    private static JsonNode getHeader(String jwt) {
         return getSpecPart(jwt,HEADER_IDX);
     }
 
@@ -38,7 +44,7 @@ public class JWTUtils {
      * @param jwt
      * @return
      */
-    private static JsonObject getData(String jwt) {
+    private static JsonNode getData(String jwt) {
         return getSpecPart(jwt,PAYLOAD_IDX);
     }
 
@@ -47,7 +53,7 @@ public class JWTUtils {
      * @param jwt
      * @return
      */
-    private static JsonObject getSignature(String jwt) {
+    private static JsonNode getSignature(String jwt) {
         return getSpecPart(jwt,SIGNATURE_IDX);
     }
 
@@ -58,11 +64,11 @@ public class JWTUtils {
      * @return
      */
     private static String getDataSpecField(String jwt, String fieldK) {
-        JsonObject json = getData(jwt);
+        JsonNode json = getData(jwt);
         if (!json.has(fieldK)) {
             return null;
         }
-        return json.get(fieldK).getAsString();
+        return json.get(fieldK).textValue();
     }
 
     /**
